@@ -1,0 +1,45 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.content {
+    width: 1800px;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1 {
+    font-size: 30pt;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+p {
+    font-size: 12pt;
+    margin-bottom: 10px;
+}
+strong {
+    color: brown;
+}
+.box {
+    border: 1.5px solid gray;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.box select, input {
+    font-size: 20pt;
+    padding: 7px;
+    margin-bottom: 20px;
+}
+.result {
+    color: blue;
+    font-size: 20pt;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

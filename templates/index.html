@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертор валют - Jusan Bank</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <div class="content">
+        <div class="panel">
+            <h1>Конвертер валют</h1>
+            <p>Предоставлено: <strong>JusanBank</strong></p>
+            <form class="box" action="/" method="get">
+                <div>
+                    <select name="convert_type" id="convert_type" onchange="this.form.convert_name = null; this.form.submit()">
+                        <option value="">-</option>
+                        <option value="individual" {% if convert_type=='individual' %} selected="selected"{% endif %}>Курсы конвертации для физических лиц</option>
+                        <option value="card" {% if convert_type=='card' %} selected="selected"{% endif %}>Курсы конвертации для проведения операций по платежным карточкам</option>
+                        <option value="metall" {% if convert_type=='metall' %} selected="selected"{% endif %}>Курсы аффинированного драгоценного металла в слитках</option>
+                    </select>
+                </div>
+                <div>
+                    <select name="convert_name" id="convert_name">
+                        {% for n in currency_list  %}
+                            <option value="{{n['name']}}" {% if convert_name==n['name'] %} selected="selected"{% endif %}>{{n['name']}}</option>
+                        {% endfor %}    
+                    </select>
+                </div>
+                <div>
+                    <input type="number" value="{{count}}" name="count" min="1">
+                </div>
+                <div>
+                    <input type="submit" value="Посчитать">
+                </div>
+                {% if result %}
+                    <div class="result">Покупка: {{result['sale']}} ₸, Продажа: {{result['buy']}} ₸</div>
+                {% endif %}    
+            </form>
+        </div>
+    </div>
+</body>
+</html>
